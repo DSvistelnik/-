@@ -9,12 +9,10 @@ class DirectorDAO:
         return self.session.query(Director).get(bid)
 
     def get_all(self, filter):
-
         page = filter.get("page")
 
         if page is not None:
             return self.session.query(Director).paginate(page, per_page=12).items
-
 
         return self.session.query(Director).all()
 

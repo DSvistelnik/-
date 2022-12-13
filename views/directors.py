@@ -9,7 +9,7 @@ director_ns = Namespace('directors')
 
 @director_ns.route('/')
 class DirectorsView(Resource):
-    @auth_required
+    #@auth_required
     def get(self):
         page = request.args.get("page")
 
