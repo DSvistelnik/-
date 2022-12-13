@@ -46,7 +46,6 @@ class MovieDAO:
 
     def update(self, movie_d):
         movie = self.get_one(movie_d.get("id"))
-        movie.title = movie_d.get("title")
         movie.description = movie_d.get("description")
         movie.trailer = movie_d.get("trailer")
         movie.year = movie_d.get("year")

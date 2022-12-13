@@ -34,11 +34,11 @@ class MoviesView(Resource):
         return "", 201, {"location": f"/movies/{movie.id}"}
 
 
-@movie_ns.route('/<int:rid>')
+@movie_ns.route('/<int:bid>')
 class MovieView(Resource):
     @auth_required
-    def get(self, rid):
-        b = movie_service.get_one(rid)
+    def get(self, bid):
+        b = movie_service.get_one(bid)
         sm_d = MovieSchema().dump(b)
         return sm_d, 200
 
@@ -51,6 +51,6 @@ class MovieView(Resource):
         return "", 204
 
     @admin_required
-    def delete(self, rid):
-        movie_service.delete(rid)
+    def delete(self, bid):
+        movie_service.delete(bid)
         return "", 204
